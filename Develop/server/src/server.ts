@@ -4,7 +4,7 @@ import type { Request, Response } from 'express';
 import db from './config/connection.js'
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
-import { typeDefs, resolvers } from './schemas/index.ts';
+import { typeDefs, resolvers } from './schemas/index';
 import { authenticateToken } from './services/auth';
 
 const server = new ApolloServer({
