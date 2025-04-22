@@ -1,4 +1,8 @@
-const typeDefs = `
+// import { gql } from 'graphql-tag';
+// const typeDefs = gql
+//May not need these in the current version
+
+const typeDefs =`
     type User {
         _id: ID!
         username: String!
@@ -6,6 +10,7 @@ const typeDefs = `
         bookCount: Int
         savedBooks: [Book]
     }
+
     type Book {
         bookId: String!
         authors: [String]
@@ -14,24 +19,32 @@ const typeDefs = `
         image: String
         link: String
     }
+
     type Auth {
         token: ID!
         user: User    
     }
+
     input saveBook {
         author: [String]
-        description: String
-        title: String
-        bookId: 
+        description: String!
+        title: String!
+        bookId: String!
         image: String
         link: String
     }
-  type Mutation {
-    login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
-    saveBook(input: saveBook!): User
-    removeBook(bookId: String!): User
-  }
+
+    type Query {
+        user: User
+        me: User
+    }
+
+    type Mutation {
+        login(email: String!, password: String!): Auth
+        addUser(username: String!, email: String!, password: String!): Auth
+        saveBook(input: saveBook!): User
+        removeBook(bookId: String!): User
+    }
 
 `;
 
