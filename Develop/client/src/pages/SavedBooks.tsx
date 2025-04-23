@@ -4,9 +4,10 @@ import { Container, Card, Button, Row, Col } from 'react-bootstrap';
 import { getMe, deleteBook } from '../utils/API';
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
-import type { User } from '../models/User';
+import type { User } from '../models/User.js';
 
 const SavedBooks = () => {
+
   const [userData, setUserData] = useState<User>({
     username: '',
     email: '',
